@@ -20,7 +20,7 @@ My project is a web application inspired by Tumblr and built using Node.js, Expr
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
+[wireframes]: /wireframes
 [components]: docs/component-hierarchy.md
 [sample-state]: docs/sample-state.md
 [api-endpoints]: docs/api-endpoints.md
