@@ -21,10 +21,10 @@ My project is a web application inspired by Tumblr and built using Node.js, Expr
 * [Sample State][sample-state]
 
 [wireframes]: ../docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[components]: ../docs/component-hierarchy.md
+[sample-state]: ../docs/sample-state.md
+[api-endpoints]: ../docs/api-endpoints.md
+[schema]: ../docs/schema.md
 
 
 ## Implementation Timeline
