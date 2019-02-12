@@ -12,7 +12,7 @@
 * Logo
 * New Posts buttons
 * User Icons
-* posts
+* feed - list of followed posts
 
 **Blog**
 
