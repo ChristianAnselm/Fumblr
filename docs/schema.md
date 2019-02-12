@@ -14,17 +14,18 @@ id          | integer   | not null, primary key
 title       | text      | title text
 body        | text      | comments/captions
 url         | string    | if post is link
+reblog_id   | integer   | references post(id)
 
 ## users
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-username    | string    | not null
+username    | string    | VARCHAR  Unique not null
 
-## follows
+## followings
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-user_id     | integer   | not null, foreign key (references artists)
+follower_id | integer   | not null, foreign key (references users id) on delete cascade
+following_id| integer   | not null, foreign key (references users id) on delete cascade
 
