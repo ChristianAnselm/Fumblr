@@ -15,7 +15,7 @@ My project is a web application inspired by Tumblr and built using Node.js, Expr
 
 ## Design Docs
 * [View Wireframes][wireframes]
-* [React Components][components]
+* [Component Hierarchy][components]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Sample State][sample-state]
