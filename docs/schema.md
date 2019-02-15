@@ -5,13 +5,14 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 username    | string    | VARCHAR  Unique not null
-icon_url    | string    | VARCHAR  Unique not null
+icon_url    | string    | VARCHAR  Unique 
+bio         | text      | VARCHAR  Unique 
 
 ## blogs
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-user_id        | integer   | not null, foreign key (references users)
+user_id         | integer   | not null, foreign key (references users)
 blogname        | string    | not null, unique not null
 
 ## posts
