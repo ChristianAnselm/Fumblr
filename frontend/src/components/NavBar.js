@@ -16,7 +16,7 @@ export const NavBar = () => {
                 </li>
             </ul>
             <ul className="buttons">
-            <li><NavLink to={'/'}><img src={user} alt="user"/></NavLink></li>
+            <li><NavLink to={'/'}><img  className="user-icon" src={user} alt="user"/></NavLink></li>
             <li><NavLink to={'/'}><img src={home} alt="feed"/></NavLink></li>
             <li><NavLink to={'/'}><img src={create} alt="create post"/></NavLink></li>
           

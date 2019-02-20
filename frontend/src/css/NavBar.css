@@ -37,3 +37,15 @@
   .buttons li {
       list-style: none;
   }
+
+  .user-icon {
+    height: 67%;
+    margin-top: 8px;
+    margin-left: 20px
+  }
+
+  .user-icon:active {
+    height: 67%;
+    margin-top: 8px;
+    margin-left: 20px
+  }
