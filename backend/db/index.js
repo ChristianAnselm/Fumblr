@@ -1,5 +1,5 @@
 
 const pgp = require('pg-promise')({});
-const db = pgp('postgres://localhost:5432/');
+const db = pgp('postgres://localhost/fumblr');
 
-module.exports = { db };
+module.exports = db;
