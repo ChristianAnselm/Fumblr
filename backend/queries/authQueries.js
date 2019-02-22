@@ -5,7 +5,6 @@ const authHelpers = require("../auth/helpers");
 function createUser(req, res, next) {
   const hash = authHelpers.createHash(req.body.password);
 
-  console.log("in it!")
 
   db.none(
     "INSERT INTO users (email, username, password_digest) VALUES (${email}, ${username}, ${password})",

@@ -26,6 +26,9 @@ My project is a web application inspired by Tumblr and built using Node.js, Expr
 [api-endpoints]: ../docs/api-endpoints.md
 [schema]: ../docs/schema.md
 
+## Trello
+
+* https://trello.com/b/wIeWfMYv/fumblr
 
 ## Implementation Timeline
 
