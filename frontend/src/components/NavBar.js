@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import home from './home.png'
-import create from './create.png'
-import user from './user.png'
+import home from './images/home.png'
+import create from './images/create.png'
+import user from './images/user.png'
 import "../css/NavBar.css"
 
 export const NavBar = () => {

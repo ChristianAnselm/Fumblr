@@ -7,8 +7,8 @@ function createUser(req, res, next) {
 
 
   db.none(
-    "INSERT INTO users (email, username, password_digest) VALUES (${email}, ${username}, ${password})",
-    { email: req.body.email, username: req.body.username, password: hash }
+    "INSERT INTO users (username, password_digest) VALUES (${username}, ${password})",
+    { username: req.body.username, password: hash }
   )
     .then(() => {
       res.status(200).json({

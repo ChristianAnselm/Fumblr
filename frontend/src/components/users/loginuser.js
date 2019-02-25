@@ -56,7 +56,8 @@ class LoginUser extends React.Component {
             />
           </label>
 
-          
+          <br></br>
+
           <label>
             Password:
             <input

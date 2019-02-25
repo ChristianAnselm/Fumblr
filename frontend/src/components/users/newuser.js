@@ -2,7 +2,11 @@ import React from "react";
 import axios from "axios";
 
 class NewUser extends React.Component {
-  state = { usernameInput: "", passwordInput: "", message: "" };
+  state = {
+    usernameInput: "",
+    passwordInput: "",
+    message: ""
+  };
 
   handleUsernameChange = e => {
     this.setState({
@@ -18,7 +22,10 @@ class NewUser extends React.Component {
 
   submitForm = e => {
     e.preventDefault();
-    const { usernameInput, passwordInput } = this.state;
+    const {
+      usernameInput,
+      passwordInput
+    } = this.state;
 
     if (usernameInput.length < 3) {
       this.setState({
@@ -27,51 +34,52 @@ class NewUser extends React.Component {
       return;
     }
     axios
-      .post("/users/new", {
+      .post("/users/signup", {
         username: this.state.usernameInput,
         password: this.state.passwordInput
       })
       .then(res => {
         console.log(res.data);
-        this.setState({ usernameInput: "", passwordInput: "", message: "Inserted User" });
+        this.setState({
+          usernameInput: "",
+          passwordInput: "",
+          message: "Signup Succesful!"
+        });
       })
       .catch(err => {
         console.log("error: ", err);
-        this.setState({ usernameInput: "", passwordInput: "", message: "Error inserting user" });
+        this.setState({
+          usernameInput: "",
+          passwordInput: "",
+          message: "Error inserting user"
+        });
       });
   };
 
   render() {
-    const { usernameInput, passwordInput, message } = this.state;
-    return (
-      <div>
-        <h1> Sign Up! </h1>
+    const {
+      usernameInput,
+      passwordInput,
+      message
+    } = this.state;
+    return (<div>
+      <h1 > Sign Up! </h1>
 
-        <form onSubmit={this.submitForm}>
-          <label>
-            Username:
-            <input
-              type="text"
-              name="username"
-              value={usernameInput}
-              onChange={this.handleUsernameChange}
-            />
-          </label>
+      <form onSubmit={this.submitForm}> <label>
+        Username:
+      <input type="text"
+          name="username"
+          value={usernameInput}
+          onChange={this.handleUsernameChange} /> </label>
 
-          <label>
-            Password:
-            <input
-              type="text"
-              name="username"
-              value={passwordInput}
-              onChange={this.handlePasswordChange}
-            />
-          </label>
+        <label>
+          Password:
+      <input type="text"
+            name="username"
+            value={passwordInput} onChange={this.handlePasswordChange} /> </label>
 
-          <input type="submit" value="Submit" />
-        </form>
-        <p>{message}</p>
-      </div>
+        <input type="submit" value="Submit" />
+      </form> <p> {message} </p> </div>
     );
   }
 }

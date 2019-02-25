@@ -5,7 +5,7 @@ CREATE DATABASE fumblr;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
-  email VARCHAR NOT NULL,
+  email VARCHAR,
   username VARCHAR NOT NULL,
   icon VARCHAR,
   bio VARCHAR,

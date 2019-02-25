@@ -2,7 +2,9 @@ var express = require("express");
 var router = express.Router();
 const db = require("../queries/authQueries");
 const passport = require("../auth/local");
-const { loginRequired } = require("../auth/helpers");
+const {
+    loginRequired
+} = require("../auth/helpers");
 
 /* GET users listing. */
 router.post("/signup", db.createUser);

@@ -1,19 +1,19 @@
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NewUser from './newuser';
 import LoginUser from './loginuser';
 
 class Users extends React.Component {
   state = { users: [] }
 
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then((users) => {
-        let data = users.data;
-        this.setState({ users: data })}
-      );
-  }
+  // componentDidMount() {
+  //   fetch('/users')
+  //     .then(res => res.json())
+  //     .then((users) => {
+  //       let data = users.data;
+  //       this.setState({ users: data })}
+  //     );
+  // }
 
 
 
