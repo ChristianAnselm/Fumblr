@@ -35,7 +35,7 @@ class LoginUser extends React.Component {
         this.setState({ usernameInput: "", passwordInput: "", message: "Logged In" });
       })
       .catch(err => {
-        this.setState({ usernameInput: "", passwordInput: "", message: "Error inserting user" });
+        this.setState({ usernameInput: "", passwordInput: "", message: "Error logging in" });
       });
   };
 
@@ -56,10 +56,11 @@ class LoginUser extends React.Component {
             />
           </label>
 
+          
           <label>
             Password:
             <input
-              type="text"
+              type="password"
               name="username"
               value={passwordInput}
               onChange={this.handlePasswordChange}

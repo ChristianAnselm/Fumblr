@@ -33,8 +33,7 @@ class Users extends React.Component {
   render() {
     return (
       <div className="App">
-        
-        <Route path='/users/new' component={ NewUser } />
+         <Route path='/users/new' component={ NewUser } />
         <Route path='/users/login' component={ LoginUser } />
         <Route path='/users/:name/edit' render={ this.renderUser } />
       </div>

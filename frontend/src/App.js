@@ -8,7 +8,7 @@ import Users from './components/users/users'
 class App extends Component {
   homepage = () => {
     return (
-      <h1> login/signup </h1>
+      <h1> login </h1>
     )
   }
 
@@ -16,15 +16,14 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-        <Route component={NavBar} />
+        
         <nav>
-          
-          <Link to='/users/new'> Add New User </Link> {"  "}
+          <Link to='/users/new'> New User </Link> {"  "}
           <Link to='/users/login'> Log In User </Link>
-        </nav>
 
         <Route exact path="/" component={this.homepage} />
         <Route path='/users' component={Users} />    
+        </nav>
       </div> 
       </BrowserRouter>
     );
