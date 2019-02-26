@@ -65,7 +65,7 @@ class NewUser extends React.Component {
     return (<div>
       <h1 > Sign Up! </h1>
 
-      <form onSubmit={this.submitForm}> <label>
+      <form className="signup" onSubmit={this.submitForm}> <label>
         Username:
       <input type="text"
           name="username"

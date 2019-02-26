@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Auth from "../../utils/auth"
+// import AuthForm from "../../utils/AuthForm"
 
 class LoginUser extends React.Component {
   state = { usernameInput: "", passwordInput: "", message: "" };
@@ -32,17 +34,23 @@ class LoginUser extends React.Component {
         password: this.state.passwordInput
       })
       .then(res => {
+        Auth.authenticateUser(usernameInput);
         this.setState({ usernameInput: "", passwordInput: "", message: "Logged In" });
+        debugger
+        // })
+        // .then(() => {
+        //   Auth.checkAuthenticateStatus();
       })
       .catch(err => {
         this.setState({ usernameInput: "", passwordInput: "", message: "Error logging in" });
+        debugger
       });
   };
 
   render() {
     const { usernameInput, passwordInput, message } = this.state;
     return (
-      <div>
+      <div className="login">
         <h1> Log In </h1>
 
         <form onSubmit={this.submitForm}>
@@ -67,7 +75,7 @@ class LoginUser extends React.Component {
               onChange={this.handlePasswordChange}
             />
           </label>
-
+          <br></br>
           <input type="submit" value="Submit" />
         </form>
         <p>{message}</p>

@@ -6,10 +6,10 @@ const {
     loginRequired
 } = require("../auth/helpers");
 
-/* GET users listing. */
+
 router.post("/signup", db.createUser);
 router.post("/login", passport.authenticate("local", {}), db.loginUser);
-router.get("/isLoggedIn", db.isLoggedIn);
+router.post("/isLoggedIn", db.isLoggedIn);
 router.post("/logout", loginRequired, db.logoutUser);
 
 module.exports = router;

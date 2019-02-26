@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { withRouter } from "react-router";
-import { Route, Switch } from "react-router-dom";
+// import { withRouter } from "react-router";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Auth from "../utils/auth";
 import Form from "./Form";
 
@@ -33,29 +33,31 @@ class AuthForm extends Component {
             username: "",
             password: ""
         });
-        // axios.post("/users/new", { username, password }).then(() => {
-        //   Auth.authenticateUser(username);
-        //   axios
-        //     .post("/users/login", { username, password })
-        //     .then(() => {
-        //       this.props.checkAuthenticateStatus();
-        //     })
-        //     .then(() => {
-        //       this.setState({
-        //         username: "",
-        //         password: ""
-        //       });
-        //     });
-        // });
+        axios.post("/users/new", { username, password }).then(() => {
+            Auth.authenticateUser(username);
+            axios
+                .post("/users/login", { username, password })
+                .then(() => {
+                    this.props.checkAuthenticateStatus();
+                })
+                .then(() => {
+                    this.setState({
+                        username: "",
+                        password: ""
+                    });
+                });
+        });
     };
 
     loginUser = e => {
+        debugger
         e.preventDefault();
         const { username, password } = this.state;
 
         axios
             .post("/users/login", { username, password })
             .then(() => {
+                debugger
                 Auth.authenticateUser(username);
             })
             .then(() => {
@@ -93,6 +95,9 @@ class AuthForm extends Component {
                 <Route
                     path="/auth/register"
                     render={() => {
+                        if (this.state.isLoggedIn) {
+                            return <Redirect to='/dashboard/user' />
+                        }
                         return (
                             <Form
                                 username={username}

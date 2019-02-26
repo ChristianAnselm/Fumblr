@@ -10,3 +10,17 @@
   background: #1A1A1C;
   color: whitesmoke;
 }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.signup {
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
