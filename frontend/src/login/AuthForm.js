@@ -8,7 +8,8 @@ import Form from "./Form";
 class AuthForm extends Component {
     state = {
         username: "",
-        password: ""
+        password: "",
+        isLoggedIn: false
     };
 
     handleChange = e => {
@@ -66,53 +67,55 @@ class AuthForm extends Component {
             .then(() => {
                 this.setState({
                     username: "",
-                    password: ""
+                    password: "",
+                    isLoggedIn: {!isLoggedIn
+                }
                 });
-            });
-    };
+    });
+};
 
-    render() {
-        const { username, password } = this.state;
-        const { isLoggedIn } = this.props;
+render() {
+    const { username, password } = this.state;
+    const { isLoggedIn } = this.props;
 
-        return (
-            <Switch>
-                <Route
-                    path="/auth/login"
-                    render={() => {
-                        return (
-                            <Form
-                                username={username}
-                                password={password}
-                                isLoggedIn={isLoggedIn}
-                                loginUser={this.loginUser}
-                                registerUser={this.registerUser}
-                                handleChange={this.handleChange}
-                            />
-                        );
-                    }}
-                />
-                <Route
-                    path="/auth/register"
-                    render={() => {
-                        if (this.state.isLoggedIn) {
-                            return <Redirect to='/dashboard/user' />
-                        }
-                        return (
-                            <Form
-                                username={username}
-                                password={password}
-                                isLoggedIn={isLoggedIn}
-                                loginUser={this.loginUser}
-                                registerUser={this.registerUser}
-                                handleChange={this.handleChange}
-                            />
-                        );
-                    }}
-                />
-            </Switch>
-        );
-    }
+    return (
+        <Switch>
+            <Route
+                path="/auth/login"
+                render={() => {
+                    return (
+                        <Form
+                            username={username}
+                            password={password}
+                            isLoggedIn={isLoggedIn}
+                            loginUser={this.loginUser}
+                            registerUser={this.registerUser}
+                            handleChange={this.handleChange}
+                        />
+                    );
+                }}
+            />
+            <Route
+                path="/auth/register"
+                render={() => {
+                    if (this.state.isLoggedIn) {
+                        return <Redirect to='/dashboard/user' />
+                    }
+                    return (
+                        <Form
+                            username={username}
+                            password={password}
+                            isLoggedIn={isLoggedIn}
+                            loginUser={this.loginUser}
+                            registerUser={this.registerUser}
+                            handleChange={this.handleChange}
+                        />
+                    );
+                }}
+            />
+        </Switch>
+    );
+}
 }
 
 export default AuthForm;

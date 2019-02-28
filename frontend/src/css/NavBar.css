@@ -3,7 +3,6 @@
 
 .navbar {
     display: flex;
-    background: #1A1A1C;
     flex-direction: row;
     float: left;
     padding-top: 0%;
@@ -31,7 +30,6 @@
 
   .buttons {
       display: flex;
-      background: #1A1A1C;
       flex-direction: row;
       float: right;
       justify-content: space-around;

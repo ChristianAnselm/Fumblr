@@ -1,26 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Leckerli+One');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
-* {
+/* * {
   background: #1A1A1C;
-}
+} */
 
 
 .App {
   text-align: center;
-  background: #1A1A1C;
+  background: rgba(27, 27, 29, 0.69);
   color: whitesmoke;
+  background-image: url("https://66.media.tumblr.com/22996b89ca73d64b33860401707f6f11/tumblr_pn643s7uAe1r39adao1_1280.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Open Sans', sans-serif  
 }
 
 .login {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  padding-top: 15%;
+  font-family: 'Raleway', sans-serif
+  /* font-family: 'Open Sans', sans-serif */
 }
 
 .signup {
    display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  padding-top: 15%;
+  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Open Sans', sans-serif */
 }
+

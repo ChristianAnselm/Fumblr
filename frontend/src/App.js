@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Link } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
-// import { Feed } from './components/Feed'
 import './App.css';
 import Users from './components/users/users'
 import axios from "axios";
-// import AuthForm from "./login/AuthForm";
 import Auth from "./utils/auth";
-// import PrivateRoute from "./utils/AuthRouting";
+import { LandingPage } from './components/LandingPage';
 
 class App extends Component {
   state = {
@@ -59,7 +57,8 @@ class App extends Component {
             <Link to='/users/logout'> Log out </Link>
           </nav>
 
-          <Route exact path="/" component={this.homepage} />
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/users/logout" component={this.logoutUser} />
           <Route path='/users' component={Users} />
           <Route path='/dashboard/user' component={NavBar} />
         </div>
