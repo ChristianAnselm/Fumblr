@@ -2,7 +2,7 @@
 
 ### Root
 
-* `GET /` - Loads Fumblr homepage
+* `GET /` - Loads Fumblr landing page
 
 ### Blog
 
