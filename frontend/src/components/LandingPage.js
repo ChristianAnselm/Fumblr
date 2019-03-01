@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 // import { Redirect } from 'react-router-dom'
 
@@ -38,16 +39,17 @@ export const LandingPage = () => {
             <br></br>
             <h3>stay because you can't logout</h3>
             <input
+                className="button"
                 type="button"
-                value="Sign Up!"
+                value="Get Started"
             // onClick={this.toggleSignup}
             />
             <h5>or</h5>
             <input
-
+                className="button"
                 type="button"
                 value="Log In"
-            // onClick={this.toggleLogin}
+            // onClick=""
             />
 
         </div >

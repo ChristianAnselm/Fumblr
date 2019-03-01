@@ -52,12 +52,11 @@ class LoginUser extends React.Component {
     return (
       <div className="login">
         <h1> Log In </h1>
-
         <form onSubmit={this.submitForm}>
           <label>
-            Username:
             <input
               type="text"
+              placeholder="Username"
               name="username"
               value={usernameInput}
               onChange={this.handleUsernameChange}
@@ -67,16 +66,19 @@ class LoginUser extends React.Component {
           <br></br>
 
           <label>
-            Password:
             <input
               type="password"
+              placeholder="Password"
               name="username"
               value={passwordInput}
               onChange={this.handlePasswordChange}
             />
           </label>
           <br></br>
-          <input type="submit" value="Submit" />
+          <input
+            className="button"
+            type="submit" value="Submit"
+          />
         </form>
         <p>{message}</p>
       </div>
