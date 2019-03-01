@@ -63,10 +63,11 @@ class NewUser extends React.Component {
       message
     } = this.state;
     return (<div>
-      <h1 > Sign Up! </h1>
 
       <form className="signup" onSubmit={this.submitForm}> <label>
-        <input type="text"
+        <h1 > Sign Up! </h1>
+        <input
+          type="text"
           placeholder="Username"
           name="username"
           value={usernameInput}
