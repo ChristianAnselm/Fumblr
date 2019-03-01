@@ -10,7 +10,7 @@ export const NavBar = () => {
         <nav>
             <ul className="navbar">
                 <li>
-                    <NavLink to={'/'}>
+                    <NavLink to={'/dashboard/user'}>
                         <h1 className='logo-text'>Fumblr</h1>
                     </NavLink>
                 </li>

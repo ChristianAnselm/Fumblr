@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Auth from "../../utils/auth"
+
 // import AuthForm from "../../utils/AuthForm"
 
 class LoginUser extends React.Component {
@@ -76,6 +77,8 @@ class LoginUser extends React.Component {
           </label>
           <br></br>
           <input
+            className="button"
+            Login Here
             className="button"
             type="submit" value="Submit"
           />
