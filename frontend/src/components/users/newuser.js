@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom"
 
 class NewUser extends React.Component {
   state = {
@@ -51,39 +52,46 @@ class NewUser extends React.Component {
         this.setState({
           usernameInput: "",
           passwordInput: "",
-          message: "Error inserting user"
+          message: ""
         });
       });
   };
 
   render() {
+    if (this.state.message) {
+      return <Redirect to="/dashboard" />
+    }
     const {
       usernameInput,
       passwordInput,
       message
     } = this.state;
-    return (<div>
+    return (
+      <div>
 
-      <form className="signup" onSubmit={this.submitForm}> <label>
-        <h1 > Sign Up! </h1>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          value={usernameInput}
-          onChange={this.handleUsernameChange} /> </label>
-
-        <label>
-          <input type="text"
-            placeholder="Password"
+        <form className="signup" onSubmit={this.submitForm}> <label>
+          <h1 > Sign Up! </h1>
+          <input
+            type="text"
+            placeholder="Username"
             name="username"
-            value={passwordInput} onChange={this.handlePasswordChange} /> </label>
+            value={usernameInput}
+            onChange={this.handleUsernameChange} /> </label>
 
-        <input
-          className="button"
-          type="submit" value="Submit"
-        />
-      </form> <p> {message} </p> </div>
+          <label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="username"
+              value={passwordInput} onChange={this.handlePasswordChange} /> </label>
+
+          <input
+            className="button"
+            type="submit" value="Submit"
+          />
+        </form> <p> {message} </p>
+
+      </div>
     );
   }
 }

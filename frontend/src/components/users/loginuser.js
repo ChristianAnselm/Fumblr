@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import Auth from "../../utils/auth"
+import { Redirect } from 'react-router-dom';
 
-// import AuthForm from "../../utils/AuthForm"
 
 class LoginUser extends React.Component {
-  state = { usernameInput: "", passwordInput: "", message: "" };
+  state = { usernameInput: "", passwordInput: "", message: "", isLoggedIn: false };
 
   handleUsernameChange = e => {
     this.setState({
@@ -16,6 +16,24 @@ class LoginUser extends React.Component {
   handlePasswordChange = e => {
     this.setState({
       passwordInput: e.target.value
+    });
+  };
+
+  checkAuthenticateStatus = () => {
+    axios.get("/users/isLoggedIn").then(user => {
+      if (user.data.username === Auth.getToken()) {
+        console.log("logged in");
+        this.setState({
+          isLoggedIn: Auth.isUserAuthenticated(),
+          username: Auth.getToken()
+        });
+      } else {
+        if (user.data.username) {
+          this.logoutUser();
+        } else {
+          Auth.deauthenticateUser();
+        }
+      }
     });
   };
 
@@ -37,19 +55,23 @@ class LoginUser extends React.Component {
       .then(res => {
         Auth.authenticateUser(usernameInput);
         this.setState({ usernameInput: "", passwordInput: "", message: "Logged In" });
-        debugger
-        // })
-        // .then(() => {
-        //   Auth.checkAuthenticateStatus();
+      })
+      .then(() => {
+        this.checkAuthenticateStatus();
       })
       .catch(err => {
         this.setState({ usernameInput: "", passwordInput: "", message: "Error logging in" });
-        debugger
       });
   };
 
   render() {
-    const { usernameInput, passwordInput, message } = this.state;
+    console.log(this.state.isLoggedIn);
+
+    const { usernameInput, passwordInput, message, isLoggedIn } = this.state;
+
+    if (this.state.isLoggedIn) {
+      return <Redirect to="/dashboard" />
+    }
     return (
       <div className="login">
         <h1> Log In </h1>
@@ -77,7 +99,6 @@ class LoginUser extends React.Component {
           </label>
           <br></br>
           <input
-            className="button"
             Login Here
             className="button"
             type="submit" value="Submit"

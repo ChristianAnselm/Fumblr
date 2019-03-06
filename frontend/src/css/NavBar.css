@@ -21,7 +21,8 @@
     margin-bottom: 0px;
     padding-bottom: 0px;
     color: red;
-    text-decoration-line: none
+    text-decoration-line: none;
+    font-family: 'Leckerli One', cursive;
   }
 
   a {

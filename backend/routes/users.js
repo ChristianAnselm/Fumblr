@@ -9,7 +9,7 @@ const {
 
 router.post("/signup", db.createUser);
 router.post("/login", passport.authenticate("local", {}), db.loginUser);
-router.post("/isLoggedIn", db.isLoggedIn);
+router.get("/isLoggedIn", db.isLoggedIn);
 router.post("/logout", loginRequired, db.logoutUser);
 
 module.exports = router;

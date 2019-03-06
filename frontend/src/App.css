@@ -2,23 +2,20 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-/* * {
-  background: #1A1A1C;
-} */
-
-
 .App {
   text-align: center;
-  background: rgba(27, 27, 29, 0.69);
+  /* background: rgba(27, 27, 29, 0.69); */
   color: whitesmoke;
-  background-image: url("https://66.media.tumblr.com/22996b89ca73d64b33860401707f6f11/tumblr_pn643s7uAe1r39adao1_1280.jpg");
-  background-size: cover;
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* background-image: url("https://66.media.tumblr.com/22996b89ca73d64b33860401707f6f11/tumblr_pn643s7uAe1r39adao1_1280.jpg");
+  background-size: cover; */
   font-family: 'Open Sans', sans-serif  
 }
-
+.landingPage {
+  padding-top: 15%;
+}
+.getStarted {
+  background-color: blueviolet;
+}
 .login {
   display: flex;
   flex-direction: column;
@@ -44,9 +41,29 @@
   font-size: 16px;
   padding: 5px 50px;
   border-radius: 4px;
+  border: none;
+}
 
+.button1 {
+  background-color: blue;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 50px;
+  border-radius: 4px;
+  border: none;
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.button1:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+body {
+  background: url("https://66.media.tumblr.com/22996b89ca73d64b33860401707f6f11/tumblr_pn643s7uAe1r39adao1_1280.jpg") no-repeat;
+  background-size: cover; 
 }

@@ -6,6 +6,7 @@ import user from './images/user.png'
 import "../css/NavBar.css"
 
 export const NavBar = () => {
+    console.log("hello?")
     return (
         <nav>
             <ul className="navbar">

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Link } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router'
 import { NavBar } from './components/NavBar';
 import './App.css';
-import Users from './components/users/users'
 import axios from "axios";
 import Auth from "./utils/auth";
 import { LandingPage } from './components/LandingPage';
+import LoginUser from './components/users/loginuser';
+import NewUser from './components/users/newuser';
+import Feed from './components/Feed';
 
 class App extends Component {
   state = {
@@ -20,6 +23,8 @@ class App extends Component {
 
   checkAuthenticateStatus = () => {
     axios.get("/users/isLoggedIn").then(user => {
+      console.log(user);
+
       if (user.data.username === Auth.getToken()) {
         this.setState({
           isLoggedIn: Auth.isUserAuthenticated(),
@@ -44,27 +49,24 @@ class App extends Component {
       .then(() => {
         this.checkAuthenticateStatus();
       });
+    return (
+      <h1>You have succesfully logged out</h1>
+    )
   };
 
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-
-          <nav className="nav">
-            <Link to='/users/new'> Register </Link> {"  "}
-            <Link to='/users/login'> Log In </Link>
-            <Link to='/users/logout'> Log out </Link>
-          </nav>
-
+      <div className="App">
+        <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/users/logout" component={this.logoutUser} />
-          <Route path='/users' component={Users} />
-          <Route path='/dashboard/user' component={NavBar} />
-        </div>
-      </BrowserRouter>
+          <Route path="/users/login" component={LoginUser} />
+          <Route path="/users/new" component={NewUser} />
+          <Route path='/dashboard' component={Feed} />
+        </Switch>
+      </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
