@@ -1,30 +1,16 @@
-import { Component } from 'react';
-// import { NavBar } from './NavBar';
+import React, { Component } from 'react';
+import { NavBar } from './NavBar';
 import { withRouter } from 'react-router';
 import axios from 'axios';
 import "../css/Feed.css"
 
 
-class DisplayFeed extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      allPosts: []
-    }
-  }
-  componentDidMount() {
-    this.getPosts()
-  }
-
-  getPosts = () => {
-    axios.get('http://localhost:3100/dashboard/')
-      .then(res => {
-        this.setState({
-          allPosts: res.data
-        })
-      })
-      .catch(err => console.log(err))
-  }
+const Feed = () => {
+  return (
+    <div className="feed">
+      <NavBar />
+    </div>
+  )
 }
 
-export default withRouter(DisplayFeed)
+export default withRouter(Feed)
