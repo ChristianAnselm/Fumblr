@@ -5,7 +5,6 @@ const authHelpers = require("../auth/helpers");
 function createUser(req, res, next) {
   const hash = authHelpers.createHash(req.body.password);
 
-
   db.none(
     "INSERT INTO users (username, password_digest) VALUES (${username}, ${password})",
     { username: req.body.username, password: hash }
@@ -40,9 +39,23 @@ function isLoggedIn(req, res) {
   }
 }
 
+function getAllUsers(req, res, next) {
+  db.any("SELECT * FROM users").then(data => {
+    res.status(200)
+      .json({
+        status: 'success',
+        message: 'got all users!',
+        data: data
+      })
+  }).catch(err => {
+    console.log(err);
+  })
+}
+
 module.exports = {
   createUser: createUser,
   logoutUser: logoutUser,
   loginUser: loginUser,
-  isLoggedIn: isLoggedIn
+  isLoggedIn: isLoggedIn,
+  getAllUsers: getAllUsers
 };

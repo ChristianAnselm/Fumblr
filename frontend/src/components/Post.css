@@ -1,0 +1,11 @@
+.post {
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: whitesmoke;
+color: slategray;
+width: 450px;
+margin-left: 300px;
+margin-right: auto;
+margin-top: 50px;
+}

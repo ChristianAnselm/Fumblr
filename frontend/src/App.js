@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router'
-import { NavBar } from './components/NavBar';
 import './App.css';
 import axios from "axios";
 import Auth from "./utils/auth";
@@ -13,7 +12,8 @@ import Feed from './components/Feed';
 class App extends Component {
   state = {
     isLoggedIn: false,
-    user: ""
+    user: "",
+    allPosts: []
   };
 
   componentDidMount() {
